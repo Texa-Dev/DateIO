@@ -56,12 +56,18 @@ public class Main {
                         jsonReader.beginObject();
                         while (jsonReader.hasNext()){
                             System.out.println(jsonReader.nextName());
+                            System.out.println(jsonReader.nextString());
                         }
                         jsonReader.endObject();
                         return user;
                     }
+
+
                 }
         ).create();
+        String json = gson.toJson(user);
+        User u2 = gson.fromJson(json, User.class);
+        System.out.println(u2);
 
     }
 }
